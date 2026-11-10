@@ -9,9 +9,9 @@ import { toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function UserList() {
- 
- 
-  
+
+
+
   interface User{
   id:number;
   image:string;
@@ -23,13 +23,13 @@ export default function UserList() {
 
   }
 
-  let navigate=useNavigate();
-  let  moveToAdd=()=>{
+  const navigate=useNavigate();
+  const moveToAdd=()=>{
     navigate('/dashboard/adduser/new_user');
   }
   //edit button
- 
-  
+
+
   // modal
    const [show, setShow] = useState(false);
 
@@ -46,28 +46,28 @@ try {
    toast.success("delete success");
    getUsers();
 
-  
+
 } catch (error) {
  toast.error("delete Fail");
-  
+
 }
 
   }
   // get user from api
-  let [users,setUsers]=useState<User[]>([]);
-  let[userId,setUserId]=useState<number |null>(null);
+  const [users,setUsers]=useState<User[]>([]);
+  const[userId,setUserId]=useState<number |null>(null);
 
-  let[userData,setUserData]=useState<User |null>(null);
-  let getUsers= async ()=>{
+  const[userData,setUserData]=useState<User |null>(null);
+  const getUsers= async ()=>{
     try {
-      let response= await axios.get("https://dummyjson.com/users");
+      const response= await axios.get("https://dummyjson.com/users");
       setUsers(response?.data?.users);
-      
-      
+
+
     } catch (error) {
       console.log(error);
-      
-      
+
+
     }
   }
   useEffect(()=>{
@@ -79,7 +79,7 @@ getUsers();
 
            <h3>UsersList</h3>
       <button className='btn btn-warning text-white'onClick={moveToAdd}>Add New User</button>
-      
+
     </div>
     <hr/>
     {/* table */}
@@ -108,9 +108,9 @@ getUsers();
             <td>{user?.birthDate}</td>
             <td><Link  to={`/dashboard/adduser/${user.id}`}><CiEdit size={25} className='text-warning'/></Link>
             <FaRegTrashAlt size={20} className='text-danger mx-2'onClick={()=>handleShow(user)}/></td>
-           
-            
-         
+
+
+
         </tr>
 
       ))
@@ -133,6 +133,6 @@ getUsers();
         </Modal.Footer>
       </Modal>
       </div>
-  
+
   )
 }

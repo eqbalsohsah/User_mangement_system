@@ -2,7 +2,7 @@ import  { useContext } from 'react'
 import { AuthContext } from '../../Context/Context'
 
 export default function NavBar() {
-  let {userData}:any=useContext(AuthContext);
+  const {userData}:any=useContext(AuthContext);
   return (
     <div className='m-3 d-flex'>
       <h5 className="text-muted ">React-UMS</h5>

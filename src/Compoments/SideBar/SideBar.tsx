@@ -18,7 +18,7 @@ export default function SideBar() {
   const toggleCollapse=()=>{
     setCollapsed(! collapsed);
   }
- 
+
   return (
     <>
     <div className='sidebarcontainer vh-100'>
@@ -39,7 +39,7 @@ export default function SideBar() {
       <MenuItem  icon={<FaHome/>} component={<Link to="/dashboard"/>}> Home</MenuItem>
     <MenuItem  icon ={<FaUsers />}component={<Link to="/dashboard/users" />} > Users</MenuItem>
     <MenuItem icon ={<AiOutlineUserAdd />} component={<Link to="/dashboard/adduser/new_user"/>}  > Add User</MenuItem>
-   
+
     <MenuItem  icon={<CgProfile />}component={<Link to="/dashboard/profile" />} > Profile</MenuItem>
         <MenuItem  icon ={<IoMdLogOut />}component={<Link to="/" />}  onClick={clearUser} > Log Out</MenuItem>
   </Menu>
